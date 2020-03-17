@@ -3,12 +3,12 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from "react-router-dom";
 //import axios from "axios";
 import ScrollToTop from "./ScrollToTop";
-import { links } from "./Link"
+import { links } from "./Links"
+import Nav from "./components/Nav"
 
 function App() {
 
@@ -49,9 +49,9 @@ function App() {
 
   return (
     <div>
-      <p>fast track</p>
       <Router>
         <ScrollToTop/>
+        <Nav/>
         <Switch>
           {routes}
         </Switch>
