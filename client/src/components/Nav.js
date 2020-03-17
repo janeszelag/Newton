@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   toolbar: {
-    minHeight: 90,
+    minHeight: 80,
     verticalAlign: "middle"
   },
   menuButton: {
@@ -77,8 +77,10 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: 200
-    }
+      width: 400
+    },
+    color: "#F8FAF9",
+    fontWeight: 600
   },
   sectionDesktop: {
     display: "none",
