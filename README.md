@@ -1,5 +1,7 @@
 # Newton
-(In progress) Newton is a pinterest-like app for learners with focus on STEM topics. Allows learners to save learning resources like tutorials, blogs and videos in a central place that is publicly available to any user. 
+(In progress) Newton is a pinterest-like app for learners with a focus on STEM topics. 
+
+Newton allows learners to save learning resources like tutorials, blogs and videos in a central place that is publicly available to any user. 
 
 ## Technical Stack
 - React front-end (React router)
