@@ -15,3 +15,14 @@ const getUsers = () => {
 }
 
 exports.getUsers = getUsers;
+
+const getResources = () => {
+  return db.query(
+    `SELECT * FROM resources ORDER BY id ASC`)
+    .then(function (res) {
+      
+      return res.rows;
+    })
+}
+
+exports.getResources = getResources;

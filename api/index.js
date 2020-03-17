@@ -19,8 +19,10 @@ app.use(
 )
 
 const userRoutes = require("./routes/users");
+const resourceRoutes = require("./routes/resources");
 
 app.use("/users", userRoutes(database));
+app.use("/resources", resourceRoutes(database));
 app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' })
 })
