@@ -93,7 +93,10 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       display: "none"
     }
-  }
+  },
+  icon: {
+    color: 'white',
+  },
 }));
 
 export default function PrimarySearchAppBar() {
@@ -172,7 +175,7 @@ export default function PrimarySearchAppBar() {
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
-              <SearchIcon />
+              <SearchIcon className={classes.icon} />
             </div>
             <InputBase
               placeholder="Search…"
@@ -192,6 +195,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              className={classes.icon}
             >
               <AccountCircle />
             </IconButton>
