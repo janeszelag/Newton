@@ -57,30 +57,7 @@ export default function Menu(props) {
   }, []);
 
   return (
-    <MainDiv>
-       <StyledGridList cellHeight={300} cols={isMobile ? 1 : 3} spacing={20} className={classes.gridList}>
-        {props.resources.map(tile => (
-          
-          <StyledGridListTile key={tile.id} cols={1} rows={1}>
-            <img src={tile.img_url} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              titlePosition="top"
-              actionIcon={
-                <IconButton
-                  aria-label={`star ${tile.title}`}
-                  className={classes.icon}
-                >
-                  <Pin />
-                </IconButton>
-              }
-              actionPosition="right"
-              className={classes.titleBar}
-            />
-          </StyledGridListTile>
-        ))}
-      </StyledGridList>
-    </MainDiv>
+  
    
   );
 }
