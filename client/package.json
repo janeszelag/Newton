@@ -39,5 +39,7 @@
     ]
   },
   "proxy": "http://localhost:5000",
-  "devDependencies": {}
+  "devDependencies": {
+    "autoresponsive-react": "^1.1.31"
+  }
 }
