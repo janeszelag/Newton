@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
 import useApplicationData from "./hooks/useApplicationData"
+import MasonryLayout from "./components/Masonry"
 
 
 
@@ -28,7 +29,7 @@ function App() {
     {
       name: "Menu",
       path: "/menu",
-      component: <Menu resources={state.pages.resources} />
+      component: <MasonryLayout resources={state.pages.resources} />
     },
     {
       name: "About",
