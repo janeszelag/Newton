@@ -5,8 +5,21 @@ export default function useApplicationData() {
   const [state, setState] = useState({
     pages: {
       resources: []
+    },
+    user: {
+      email: "",
+      name: "",
+      id: ""
     }
   });
+
+   //sets user
+   const setUser = user => {
+    setState(prev => ({
+      ...prev,
+      user
+    }));
+  };
 
   useEffect(() => {
     Promise.all([
@@ -35,5 +48,5 @@ export default function useApplicationData() {
       });
   }, []);
 
-  return { state };
+  return { state, setUser };
 }

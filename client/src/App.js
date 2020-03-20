@@ -6,19 +6,20 @@ import About from "./components/About";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
+import Topics from "./components/Topics";
 import useApplicationData from "./hooks/useApplicationData"
 
 
 
 function App() {
 
-  const { state } = useApplicationData();
+  const { state, setUser } = useApplicationData();
 
   const links = [
     {
       name: "Signup",
       path: "/signup",
-      component: <Signup />
+      component: <Signup setUser={setUser} />
     },
     {
       name: "Login",
@@ -34,6 +35,11 @@ function App() {
       name: "About",
       path: "/about",
       component: <About />
+    },
+    {
+      name: "Topics",
+      path: "/topics",
+      component: <Topics />
     }
   ];
 
