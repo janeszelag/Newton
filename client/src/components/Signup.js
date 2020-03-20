@@ -116,9 +116,12 @@ export default function SignUp(props) {
     })
       .then(response => {
         console.log(response)
+        props.setUserCookie(
+          response.data.firstname,
+          response.data.id
+        );
         props.setUser({
-          email: response.data.email,
-          name: response.data.name,
+          firstName: response.data.firstname,
           id: response.data.id
         });
         

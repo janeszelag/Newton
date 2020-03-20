@@ -5,7 +5,7 @@ import App from './App';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import * as serviceWorker from './serviceWorker';
-
+import { CookiesProvider } from 'react-cookie';
 
 
 const theme = createMuiTheme({
@@ -39,7 +39,9 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
-      <App />
+    <CookiesProvider>
+    <App />
+    </CookiesProvider>
   </ThemeProvider>,
   document.getElementById("root")
 );

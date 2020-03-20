@@ -99,7 +99,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -186,6 +186,10 @@ export default function PrimarySearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+          {props.cookies.user && <Typography className={classes.title} variant="h6" noWrap>
+           Hi {props.cookies.user.firstName}
+          </Typography> }
+          
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton

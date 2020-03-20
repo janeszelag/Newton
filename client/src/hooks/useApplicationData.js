@@ -1,25 +1,35 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useCookies } from 'react-cookie';
 
 export default function useApplicationData() {
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [state, setState] = useState({
     pages: {
       resources: []
     },
     user: {
-      email: "",
-      name: "",
+      firstName: "",
       id: ""
     }
   });
 
-   //sets user
+  //  //sets user, from before
    const setUser = user => {
     setState(prev => ({
       ...prev,
       user
     }));
   };
+
+  //set user cookie
+  const setUserCookie = (firstName, id) => {
+    setCookie('user', {firstName: firstName, id: id}, { path: '/' });
+  }
+
+  if (!state.user.firstName && cookies.user) {
+    setUser({firstName: cookies.user.firstName, id: cookies.user.id})
+  }
 
   useEffect(() => {
     Promise.all([
@@ -48,5 +58,5 @@ export default function useApplicationData() {
       });
   }, []);
 
-  return { state, setUser };
+  return { state, cookies, setUserCookie, setUser };
 }

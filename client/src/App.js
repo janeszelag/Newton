@@ -13,13 +13,18 @@ import useApplicationData from "./hooks/useApplicationData"
 
 function App() {
 
-  const { state, setUser } = useApplicationData();
+  const { state, setUserCookie, cookies, setUser } = useApplicationData();
 
+  if (cookies.user) {
+    console.log(cookies.user.firstName.firstName)
+    console.log(cookies.user)
+  }
+  
   const links = [
     {
       name: "Signup",
       path: "/signup",
-      component: <Signup setUser={setUser} />
+      component: <Signup setUserCookie={setUserCookie} setUser={setUser} />
     },
     {
       name: "Login",
@@ -55,7 +60,7 @@ function App() {
     <div>
       <Router>
         <ScrollToTop />
-        <Nav />
+        <Nav cookies={cookies} />
         <Switch>{routes}</Switch>
       </Router>
     </div>
