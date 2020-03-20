@@ -30,7 +30,7 @@ exports.getResources = getResources;
 
 const getUserWithEmail = function (email) {
   return db.query(
-    `SELECT id, email
+    `SELECT id, email, firstname, lastname, password
   FROM users
   WHERE email = $1`, [email])
     .then(function (res) {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useSignUpForm = callback => {
+const useUserForm = callback => {
   const [inputs, setInputs] = useState({});
   const handleSubmit = event => {
     if (event) {
@@ -21,4 +21,4 @@ const useSignUpForm = callback => {
     inputs
   };
 };
-export default useSignUpForm;
+export default useUserForm;

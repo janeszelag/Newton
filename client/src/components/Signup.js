@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useSignUpForm from "../hooks/useSignUpForm";
+import useUserForm from "../hooks/useUserForm";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -132,7 +132,7 @@ export default function SignUp(props) {
       });
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signUserUp);
+  const { inputs, handleInputChange, handleSubmit } = useUserForm(signUserUp);
 
   return (
     <main>

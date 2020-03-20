@@ -25,7 +25,7 @@ function App() {
     {
       name: "Login",
       path: "/login",
-      component: <Login />
+      component: <Login setUserCookie={setUserCookie} setUser={setUser} />
     },
     {
       name: "Menu",
