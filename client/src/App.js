@@ -15,10 +15,6 @@ function App() {
 
   const { state, setUserCookie, cookies, setUser } = useApplicationData();
 
-  if (cookies.user) {
-    console.log(cookies.user.firstName.firstName)
-    console.log(cookies.user)
-  }
   
   const links = [
     {

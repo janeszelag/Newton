@@ -21,7 +21,7 @@ module.exports = db => {
       if (!user) {
         return db.addUser(firstName, lastName, email, password)
         .then(user => {
-          console.log(user)
+          
           res.status(200).json(user)
         })
         .catch(err => {
