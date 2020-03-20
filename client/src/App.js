@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import Nav from "./components/Nav";
 import About from "./components/About";
-import Signup from "./components/Signup";
+import Signup from "./components/SignUp/SignUp";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
-import Topics from "./components/Topics";
 import useApplicationData from "./hooks/useApplicationData"
 
 
@@ -36,11 +35,6 @@ function App() {
       name: "About",
       path: "/about",
       component: <About />
-    },
-    {
-      name: "Topics",
-      path: "/topics",
-      component: <Topics />
     }
   ];
 

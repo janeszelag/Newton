@@ -1,18 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import useUserForm from "../hooks/useUserForm";
+import useUserForm from "../../hooks/useUserForm";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
-import Paper from "@material-ui/core/Paper";
-
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -20,51 +13,14 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 
+import {ContainerSignup, MainDiv, PaperSignup, TextFieldSignup, TypographySignup, StyledLink} from '../../styles/signup'
 const axios = require("axios").default;
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-// CSS STYLED COMPONENTS
-const ContainerSignup = styled(Container)`
-  padding: 3%;
-`;
 
-export const MainDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-`;
-
-const PaperSignup = styled(Paper)`
-  background-color: #B9E3C6;
-  margin-top: 5em;
-  padding: 1em;
-  @media (max-width: 768px) {
-    width 90%;
-    margin-top: 2em;
-  }
-`;
-const TextFieldSignup = styled(TextField)`
-  & > * {
-    color: black;
-    & > fieldset {
-      border-color: black;
-    }
-  }
-`;
-const TypographySignup = styled(Typography)`
-  font-size: x-large;
-  font-weight: 600;
-  color: black;
-`;
-
-const StyledLink = styled(Link)`
-color: black;
-`
 
 // MATERIAL UI COMPONENT STYLING THEME
 const useStyles = makeStyles(theme => ({
@@ -86,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 
 // SIGNUP FUNCTION
 
-export default function SignUp(props) {
+export default function Form(props) {
   const [open, setOpen] = React.useState(false);
   let history = useHistory();
   const classes = useStyles();
@@ -123,8 +79,7 @@ export default function SignUp(props) {
           firstName: response.data.firstname,
           id: response.data.id
         });
-        
-        history.push("/topics")
+        props.userCreated();
       })
       .catch(err => {
         console.log(err);
