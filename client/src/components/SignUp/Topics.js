@@ -1,13 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
+import TopicCheckBoxes from "./TopicsChoice"
 
 
-export default function Topics() {
+
+
+export default function Topics(props) {
+
 
   //call this after post
   // localStorage.removeItem("mode");
   return (
     <main>
-      <p>Topics choice</p>
+       
+        
+     
+        <TopicCheckBoxes topics={props.topics}/>
+       
+       
+       
+        
+  
+      
     </main>
   );
 }

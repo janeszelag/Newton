@@ -58,3 +58,14 @@ const addUser = function (firstName, lastName, email, password) {
 }
 
 exports.addUser = addUser;
+
+const getAllTopics = function () {
+  return db.query(
+    `SELECT id, name
+    FROM topics`)
+    .then(res => {
+      return res.rows;
+    })
+}
+
+exports.getAllTopics = getAllTopics;

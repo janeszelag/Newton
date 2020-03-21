@@ -15,11 +15,12 @@ export default function Signup(props) {
   const userCreated = () => {
     transition(TOPICS)
   }
-  
+
+
   return (
     <article>
-      {mode === FORM && <Form userCreated={userCreated} setUserCookie={props.setUserCookie} setUser={props.setUser}/>}
-      {mode === TOPICS && <Topics />}
+      {mode === FORM && <Form userCreated={userCreated} setUserCookie={props.setUserCookie} setUser={props.setUser} />}
+      {mode === TOPICS && <Topics topics={props.topics} />}
     </article>
   ) 
 }

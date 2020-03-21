@@ -6,7 +6,8 @@ export default function useApplicationData() {
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [state, setState] = useState({
     pages: {
-      resources: []
+      resources: [],
+      topics: []
     },
     user: {
       firstName: "",
@@ -42,6 +43,16 @@ export default function useApplicationData() {
           "Access-Control-Allow-Credentials": true
         },
         withCredentials: false
+      }),
+      axios.request({
+        url: "http://localhost:5000/topics",
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Credentials": true
+        },
+        withCredentials: false
       })
     ])
       .then(response => {
@@ -49,7 +60,8 @@ export default function useApplicationData() {
           ...prev,
           pages: {
             ...prev.pages,
-            resources: response[0].data
+            resources: response[0].data,
+            topics: response[1].data
           }
         }));
       })

@@ -7,11 +7,10 @@ const app = express();
 const port = 5000;
 const cors = require("cors");
 const database = require("./database");
-const cookieParser = require("cookie-parser");
+
 
 app.use(cors());
 app.options("*", cors());
-app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -21,9 +20,11 @@ app.use(
 
 const userRoutes = require("./routes/users");
 const resourceRoutes = require("./routes/resources");
+const topicsRoutes = require("./routes/topics");
 
 app.use("/users", userRoutes(database));
 app.use("/resources", resourceRoutes(database));
+app.use("/topics", topicsRoutes(database));
 app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });

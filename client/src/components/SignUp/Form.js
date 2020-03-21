@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useUserForm from "../../hooks/useUserForm";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -43,7 +43,8 @@ const useStyles = makeStyles(theme => ({
 // SIGNUP FUNCTION
 
 export default function Form(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+ 
   let history = useHistory();
   const classes = useStyles();
 
@@ -57,7 +58,7 @@ export default function Form(props) {
     setOpen(false);
   };
 
-  const signUserUp = () => {
+  const signUserUp = (inputs) => {
     const body = {
       firstName: inputs.firstName,
       lastName: inputs.lastName,
@@ -86,6 +87,7 @@ export default function Form(props) {
         handleClickOpen();
       });
   };
+  
 
   const { inputs, handleInputChange, handleSubmit } = useUserForm(signUserUp);
 
