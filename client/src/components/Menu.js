@@ -3,7 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import Pin from "./Pin";
-import { MainDiv, StyledGridList, StyledGridListTile } from "../styles/menu";
+import {
+  MainDiv,
+  StyledGridList,
+  StyledGridListTile,
+  IntroDiv,
+  Text
+} from "../styles/menu";
 
 const useStyles = makeStyles(theme => ({
   gridList: {
@@ -32,6 +38,12 @@ export default function Menu(props) {
 
   return (
     <MainDiv>
+      <IntroDiv>
+        <Text>
+          Click on a resource to explore it. Pin a resource to save it to a
+          board! <br /> You can also search for a resource or topic by name.
+        </Text>
+      </IntroDiv>
       <StyledGridList
         cellHeight={300}
         cols={isMobile ? 1 : 3}

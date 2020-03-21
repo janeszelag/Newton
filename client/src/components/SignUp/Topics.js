@@ -83,7 +83,7 @@ export default function Topics(props) {
       topics: topicsArray,
       userId: props.userId
     };
-    console.log(body)
+   
 
     return axios({
       method: "post",
