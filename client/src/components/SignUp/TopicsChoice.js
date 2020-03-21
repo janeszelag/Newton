@@ -4,10 +4,10 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
+// import FormHelperText from "@material-ui/core/FormHelperText";
 import Checkbox from "@material-ui/core/Checkbox";
-import styled from "styled-components";
 import Button from "@material-ui/core/Button";
+import styled from "styled-components";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -27,10 +27,10 @@ align-items: center;
 
 export default function TopicCheckBoxes(props) {
   const classes = useStyles();
-  const [allTopics, setTopics] = useState({});
+ 
 
   const handleChange = event => {
-    setTopics({ ...allTopics, [event.target.name]: event.target.checked });
+    props.setTopics({ ...props.allTopics, [event.target.name]: event.target.checked });
   };
 
   // const faketop = [{name:"math", id:1}, {name:"chem", id:2}]
@@ -41,9 +41,10 @@ export default function TopicCheckBoxes(props) {
         key={topic.id}
         control={
           <Checkbox
-            checked={allTopics[topic.id]}
+            checked={props.allTopics[topic.id]}
             onChange={handleChange}
-            name="{topic.id}"
+            name={topic.id
+            }
           />
         }
         label={topic.name}
@@ -52,7 +53,7 @@ export default function TopicCheckBoxes(props) {
   });
 
   return (
-    <form onSubmit={"nothing yet"}>
+    <form onSubmit={props.handleSubmit}>
     <MainDiv>
       
         <FormControl
@@ -60,7 +61,7 @@ export default function TopicCheckBoxes(props) {
           component="fieldset"
           className={classes.formControl}
         >
-          <FormLabel component="legend">Pick at least three</FormLabel>
+          <FormLabel component="legend">Pick at least two</FormLabel>
           <FormGroup row>{choices}</FormGroup>
           
         </FormControl>

@@ -58,7 +58,7 @@ export default function Form(props) {
     setOpen(false);
   };
 
-  const signUserUp = (inputs) => {
+  const signUserUp = () => {
     const body = {
       firstName: inputs.firstName,
       lastName: inputs.lastName,

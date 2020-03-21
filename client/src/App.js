@@ -19,7 +19,7 @@ function App() {
     {
       name: "Signup",
       path: "/signup",
-      component: <Signup setUserCookie={setUserCookie} setUser={setUser} topics={state.pages.topics} />
+      component: <Signup name={state.user.firstName} userId={state.user.id} setUserCookie={setUserCookie} setUser={setUser} topics={state.pages.topics} />
     },
     {
       name: "Login",

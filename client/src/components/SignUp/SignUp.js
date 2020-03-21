@@ -20,7 +20,7 @@ export default function Signup(props) {
   return (
     <article>
       {mode === FORM && <Form userCreated={userCreated} setUserCookie={props.setUserCookie} setUser={props.setUser} />}
-      {mode === TOPICS && <Topics topics={props.topics} />}
+      {mode === TOPICS && <Topics name={props.name} userId={props.userId} topics={props.topics} />}
     </article>
   ) 
 }
