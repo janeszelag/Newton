@@ -11,6 +11,7 @@ import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { useHistory } from "react-router-dom";
 
 const Apple = styled.img`
   height: 40px;
@@ -100,6 +101,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PrimarySearchAppBar(props) {
+  const history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -120,10 +122,14 @@ export default function PrimarySearchAppBar(props) {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+ 
 
+  const logout = () => {
+    props.removeUserCookie()
+    handleMenuClose()
+    props.setUser({ email: "", name: "", id: "" });
+    history.push("/login");
+  }
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -135,8 +141,9 @@ export default function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {props.userName && <MenuItem onClick={handleMenuClose}>My Boards</MenuItem>}
+      {props.userName && <MenuItem onClick={() => logout()}>Logout</MenuItem>}
+      {!props.userName && <MenuItem onClick={() => history.push("/login")}>Login</MenuItem>}
     </Menu>
   );
 
@@ -151,17 +158,6 @@ export default function PrimarySearchAppBar(props) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
     </Menu>
   );
 
@@ -186,12 +182,13 @@ export default function PrimarySearchAppBar(props) {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          {props.cookies.user && <Typography className={classes.title} variant="h6" noWrap>
-           Hi {props.cookies.user.firstName}
-          </Typography> }
+         
           
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+          {props.userName && <Typography className={classes.title} variant="h6" noWrap>
+           Hi {props.userName}!
+          </Typography> }
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -200,6 +197,7 @@ export default function PrimarySearchAppBar(props) {
               onClick={handleProfileMenuOpen}
               color="inherit"
               className={classes.icon}
+              
             >
               <AccountCircle />
             </IconButton>
@@ -209,7 +207,7 @@ export default function PrimarySearchAppBar(props) {
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={handleProfileMenuOpen}
               color="inherit"
             >
               <MoreIcon />

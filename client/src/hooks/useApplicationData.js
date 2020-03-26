@@ -28,6 +28,11 @@ export default function useApplicationData() {
     setCookie('user', {firstName: firstName, id: id}, { path: '/' });
   }
 
+  //remove user cookie
+  const removeUserCookie = () => {
+    removeCookie('user')
+  }
+
   if (!state.user.firstName && cookies.user) {
     setUser({firstName: cookies.user.firstName, id: cookies.user.id})
   }
@@ -70,5 +75,5 @@ export default function useApplicationData() {
       });
   }, []);
 
-  return { state, cookies, setUserCookie, setUser };
+  return { state, cookies, setUserCookie, setUser, removeUserCookie };
 }

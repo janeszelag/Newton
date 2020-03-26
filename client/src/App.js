@@ -12,7 +12,7 @@ import useApplicationData from "./hooks/useApplicationData"
 
 function App() {
 
-  const { state, setUserCookie, cookies, setUser } = useApplicationData();
+  const { state, setUserCookie, setUser, removeUserCookie } = useApplicationData();
 
   
   const links = [
@@ -50,7 +50,7 @@ function App() {
     <div>
       <Router>
         <ScrollToTop />
-        <Nav cookies={cookies} />
+        <Nav userName={state.user.firstName} removeUserCookie={removeUserCookie} setUser={setUser} />
         <Switch>{routes}</Switch>
       </Router>
     </div>

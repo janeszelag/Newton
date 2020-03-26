@@ -20,7 +20,7 @@ export const MainDiv = styled.div`
 `;
 
 export const PaperSignup = styled(Paper)`
-  background-color: #B9E3C6;
+  background-color: #c2dbd3;
   margin-top: 5em;
   padding: 1em;
   @media (max-width: 768px) {

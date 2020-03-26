@@ -40,8 +40,8 @@ export default function Menu(props) {
     <MainDiv>
       <IntroDiv>
         <Text>
-          Click on a resource to explore it. Pin a resource to save it to a
-          board! <br /> You can also search for a resource or topic by name.
+          To get started pin a resource you like to save it to a
+          board, or click a resource to explore it more! <br /> You can also search for a resource or topic by name!
         </Text>
       </IntroDiv>
       <StyledGridList

@@ -15,6 +15,9 @@ export const MainDiv = styled.div`
 export const StyledGridList = styled(GridList)`
 width: 80%;
 height 100%;
+@media (max-width: 768px) {
+  width: 90%;
+}
 `
 export const StyledGridListTile = styled(GridListTile)`
 border-radius: 30px;
