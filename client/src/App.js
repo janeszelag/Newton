@@ -6,20 +6,29 @@ import About from "./components/About";
 import Signup from "./components/SignUp/SignUp";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
-import useApplicationData from "./hooks/useApplicationData"
-
-
+import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
+  const {
+    state,
+    setUserCookie,
+    setUser,
+    removeUserCookie
+  } = useApplicationData();
 
-  const { state, setUserCookie, setUser, removeUserCookie } = useApplicationData();
-
-  
   const links = [
     {
       name: "Signup",
       path: "/signup",
-      component: <Signup name={state.user.firstName} userId={state.user.id} setUserCookie={setUserCookie} setUser={setUser} topics={state.pages.topics} />
+      component: (
+        <Signup
+          name={state.user.firstName}
+          userId={state.user.id}
+          setUserCookie={setUserCookie}
+          setUser={setUser}
+          topics={state.pages.topics}
+        />
+      )
     },
     {
       name: "Login",
@@ -50,7 +59,11 @@ function App() {
     <div>
       <Router>
         <ScrollToTop />
-        <Nav userName={state.user.firstName} removeUserCookie={removeUserCookie} setUser={setUser} />
+        <Nav
+          userName={state.user.firstName}
+          removeUserCookie={removeUserCookie}
+          setUser={setUser}
+        />
         <Switch>{routes}</Switch>
       </Router>
     </div>

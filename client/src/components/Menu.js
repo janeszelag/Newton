@@ -32,42 +32,41 @@ export default function Menu(props) {
   const classes = useStyles();
 
   const [isMobile, setIsMobile] = useState(false);
-  const [resources, setResources] = useState([])
+  const [resources, setResources] = useState([]);
 
- 
   useEffect(() => {
-     //I really need to fix this so its better, need to research the grid thing to figure it out
+    //I really need to fix this so its better, need to research the grid thing to figure it out
     if (window.innerWidth < 600) setIsMobile(true);
-    axios.request({
-      url: "http://localhost:5000/resources",
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Credentials": true
-      },
-      params: {
-        userId: props.id
-      },
-      withCredentials: false
-    })
-    .then(response => {
-      console.log(response)
-      setResources(response.data);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+    axios
+      .request({
+        url: "http://localhost:5000/resources",
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Credentials": true
+        },
+        params: {
+          userId: props.id
+        },
+        withCredentials: false
+      })
+      .then(response => {
+        console.log(response);
+        setResources(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }, []);
-
-
 
   return (
     <MainDiv>
       <IntroDiv>
         <Text>
-          To get started pin a resource you like to save it to a
-          board, or click a resource to explore it more! <br /> You can also search for a resource or topic by name!
+          To get started pin a resource you like to save it to a board, or click
+          a resource to explore it more! <br /> You can also search for a
+          resource or topic by name!
         </Text>
       </IntroDiv>
       <StyledGridList

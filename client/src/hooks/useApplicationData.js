@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 
 export default function useApplicationData() {
-  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [state, setState] = useState({
     pages: {
       topics: []
@@ -15,7 +15,7 @@ export default function useApplicationData() {
   });
 
   //  //sets user, from before
-   const setUser = user => {
+  const setUser = user => {
     setState(prev => ({
       ...prev,
       user
@@ -24,19 +24,17 @@ export default function useApplicationData() {
 
   //set user cookie
   const setUserCookie = (firstName, id) => {
-    setCookie('user', {firstName: firstName, id: id}, { path: '/' });
-  }
+    setCookie("user", { firstName: firstName, id: id }, { path: "/" });
+  };
 
   //remove user cookie
   const removeUserCookie = () => {
-    removeCookie('user')
-  }
+    removeCookie("user");
+  };
 
   if (!state.user.firstName && cookies.user) {
-    setUser({firstName: cookies.user.firstName, id: cookies.user.id})
+    setUser({ firstName: cookies.user.firstName, id: cookies.user.id });
   }
-
- 
 
   useEffect(() => {
     Promise.all([
