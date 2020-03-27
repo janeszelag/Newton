@@ -6,7 +6,6 @@ export default function useApplicationData() {
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [state, setState] = useState({
     pages: {
-      resources: [],
       topics: []
     },
     user: {
@@ -37,18 +36,10 @@ export default function useApplicationData() {
     setUser({firstName: cookies.user.firstName, id: cookies.user.id})
   }
 
+ 
+
   useEffect(() => {
     Promise.all([
-      axios.request({
-        url: "http://localhost:5000/resources",
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Credentials": true
-        },
-        withCredentials: false
-      }),
       axios.request({
         url: "http://localhost:5000/topics",
         method: "get",
@@ -65,8 +56,7 @@ export default function useApplicationData() {
           ...prev,
           pages: {
             ...prev.pages,
-            resources: response[0].data,
-            topics: response[1].data
+            topics: response[0].data
           }
         }));
       })

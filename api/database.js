@@ -16,6 +16,26 @@ const getUsers = () => {
 
 exports.getUsers = getUsers;
 
+//menupage - grabs resources by topics associated with that userId
+
+const getResourcesByTopicsForUser = function (id) {
+  return db.query(`SELECT resources.*
+  FROM resources
+  JOIN topics_resources ON topics_resources.resource_id = resources.id
+  JOIN topics ON topics_resources.topic_id = topics.id
+  JOIN user_topics ON topics_resources.topic_id = user_topics.topic_id
+  WHERE user_topics.user_id = $1 
+  GROUP BY resources.id;
+    `, [id])
+    .then(data => {
+      
+      return data.rows;
+    });
+}
+
+exports.getResourcesByTopicsForUser = getResourcesByTopicsForUser
+
+//old function uses to grab all resources
 const getResources = () => {
   return db.query(
     `SELECT * FROM resources ORDER BY id ASC`)
@@ -28,6 +48,7 @@ const getResources = () => {
 exports.getResources = getResources;
 
 
+//used for login/sign up
 const getUserWithEmail = function (email) {
   return db.query(
     `SELECT id, email, firstname, lastname, password
@@ -59,6 +80,8 @@ const addUser = function (firstName, lastName, email, password) {
 
 exports.addUser = addUser;
 
+
+//used for sign up, user chooses topics
 const getAllTopics = function () {
   return db.query(
     `SELECT id, name
@@ -73,6 +96,7 @@ exports.getAllTopics = getAllTopics;
 
 //connecting topics to user upon signin
 const addTopicsToUser = function (user_id, topic_id) {
+  console.log('here')
   return db.query(
     ` INSERT INTO user_topics (user_id, topic_id)
      VALUES ($1, $2)

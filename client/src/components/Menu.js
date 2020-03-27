@@ -10,6 +10,7 @@ import {
   IntroDiv,
   Text
 } from "../styles/menu";
+const axios = require("axios").default;
 
 const useStyles = makeStyles(theme => ({
   gridList: {
@@ -31,10 +32,39 @@ export default function Menu(props) {
   const classes = useStyles();
 
   const [isMobile, setIsMobile] = useState(false);
+  const [resources, setResources] = useState([])
 
+  //I really need to fix this so its better, need to research the grid thing to figure it out
   useEffect(() => {
     if (window.innerWidth < 600) setIsMobile(true);
   }, []);
+
+  // const body = {
+  //   userId: props.id
+  // }
+
+  useEffect(() => {
+    axios.request({
+      url: "http://localhost:5000/resources",
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Credentials": true
+      },
+      params: {
+        userId: props.id
+      },
+      withCredentials: false
+    })
+    .then(response => {
+      console.log(response)
+      setResources(response.data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  }, [])
 
   return (
     <MainDiv>
@@ -50,7 +80,7 @@ export default function Menu(props) {
         spacing={20}
         className={classes.gridList}
       >
-        {props.resources.map(tile => (
+        {resources.map(tile => (
           <StyledGridListTile key={tile.id} cols={1} rows={1}>
             <img src={tile.img_url} alt={tile.title} />
             <GridListTileBar

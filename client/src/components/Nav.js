@@ -162,6 +162,7 @@ export default function PrimarySearchAppBar(props) {
     </Menu>
   );
 
+  //console.log(props.userName)
   return (
     <div className={classes.grow}>
       <AppBar position="static" className={classes.app}>
