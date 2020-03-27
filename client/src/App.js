@@ -38,7 +38,7 @@ function App() {
     {
       name: "Menu",
       path: "/menu",
-      component: <Menu resources={state.pages.resources} id={state.user.id} />
+      component: <Menu id={state.user.id} />
     },
     {
       name: "About",
