@@ -34,16 +34,10 @@ export default function Menu(props) {
   const [isMobile, setIsMobile] = useState(false);
   const [resources, setResources] = useState([])
 
-  //I really need to fix this so its better, need to research the grid thing to figure it out
+ 
   useEffect(() => {
+     //I really need to fix this so its better, need to research the grid thing to figure it out
     if (window.innerWidth < 600) setIsMobile(true);
-  }, []);
-
-  // const body = {
-  //   userId: props.id
-  // }
-
-  useEffect(() => {
     axios.request({
       url: "http://localhost:5000/resources",
       method: "get",
@@ -64,7 +58,9 @@ export default function Menu(props) {
     .catch(function(error) {
       console.log(error);
     });
-  }, [])
+  }, []);
+
+
 
   return (
     <MainDiv>
