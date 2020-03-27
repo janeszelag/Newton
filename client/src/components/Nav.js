@@ -12,6 +12,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { useHistory } from "react-router-dom";
+import ButtonBase from "@material-ui/core/ButtonBase";
 
 const Apple = styled.img`
   height: 40px;
@@ -165,10 +166,12 @@ export default function PrimarySearchAppBar(props) {
     <div className={classes.grow}>
       <AppBar position="static" className={classes.app}>
         <Toolbar className={classes.toolbar}>
+        <ButtonBase onClick={() => history.push("/menu")}>
           <Apple src="https://res.cloudinary.com/dpfixnpii/image/upload/v1584418511/apple_1_yzrfxh.svg"/>
           <Typography className={classes.title} variant="h6" noWrap>
             newton
           </Typography>
+          </ButtonBase>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon className={classes.icon} />
