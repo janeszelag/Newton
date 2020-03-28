@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import Grid from "@material-ui/core/Grid";
+import CardContent from "@material-ui/core/CardContent";
 
 export const MainDiv = styled.div`
   width: 100%;
@@ -11,16 +13,35 @@ export const MainDiv = styled.div`
   align-items: center;
 `;
 
-export const StyledGridList = styled(GridList)`
-width: 80%;
-height 100%;
-@media (max-width: 768px) {
-  width: 90%;
-}
-`
-export const StyledGridListTile = styled(GridListTile)`
-border-radius: 30px;
-`
+export const StyledGrid = styled(Grid)`
+  width: 95%;
+`;
+
+export const StyledTypography = styled(Typography)`
+  font-weight: 600;
+  color: #faf9f8;
+  font-size: 1.75em;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+export const StyledCard = styled(Card)`
+  &:hover {
+    transform: translateY(-4px);
+  }
+`;
+
+export const StyledCardContent = styled(CardContent)`
+  background-color: #a6b07e;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 export const IntroDiv = styled.div`
   height: 40%;
   width: 100%;
@@ -31,7 +52,7 @@ export const IntroDiv = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2em;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   @media (max-width: 768px) {
     padding: 0em;
   }
@@ -40,9 +61,7 @@ export const IntroDiv = styled.div`
 export const Text = styled.p`
   color: #ffffff;
   font-size: 1.5em;
-
   font-weight: 500;
-
   @media (max-width: 768px) {
     font-size: 1.25em;
     margin-left: 1em;

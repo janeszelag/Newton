@@ -15,8 +15,8 @@ import { useHistory } from "react-router-dom";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 const Apple = styled.img`
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   margin-right: 6px;
 `;
 
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
       display: "block"
     },
     marginTop: "0.25em",
-    fontWeight: 600,
+    fontWeight: 500,
     fontSize: "x-large",
     color: "#F8FAF9"
 
