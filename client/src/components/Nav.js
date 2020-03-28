@@ -15,8 +15,8 @@ import { useHistory } from "react-router-dom";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 const Apple = styled.img`
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   margin-right: 6px;
 `;
 
@@ -28,11 +28,12 @@ const useStyles = makeStyles(theme => ({
   },
   app: {
     
-    display: "flex"
+    display: "flex",
+    verticalAlign: "middle"
 
   },
   toolbar: {
-    minHeight: 80,
+    minHeight: 60,
     verticalAlign: "middle"
   },
   menuButton: {
@@ -46,6 +47,18 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 600,
     fontSize: "x-large",
     color: "#F8FAF9"
+
+  },
+  title2: {
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block"
+    },
+    marginTop: "0.25em",
+    fontWeight: 500,
+    fontSize: "x-large",
+    color: "#F8FAF9"
+
   },
   search: {
     position: "relative",
@@ -190,7 +203,7 @@ export default function PrimarySearchAppBar(props) {
           
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-          {props.userName && <Typography className={classes.title} variant="h6" noWrap>
+          {props.userName && <Typography className={classes.title2} variant="h6" noWrap>
            Hi {props.userName}!
           </Typography> }
             <IconButton

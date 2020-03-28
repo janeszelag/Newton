@@ -4,6 +4,10 @@ import styled from "styled-components";
 const PinImg = styled.img`
   height: 25px;
   width: 25px;
+  &:hover {
+    transform: translateY(-4px);
+  
+  }
 `;
 
 export default function Pin() {
