@@ -96,7 +96,6 @@ exports.getAllTopics = getAllTopics;
 
 //connecting topics to user upon signin
 const addTopicsToUser = function (user_id, topic_id) {
-  console.log('here')
   return db.query(
     ` INSERT INTO user_topics (user_id, topic_id)
      VALUES ($1, $2)
