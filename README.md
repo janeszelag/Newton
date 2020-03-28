@@ -4,5 +4,9 @@
 ![In Progress Menu](https://github.com/janeszelag/Newton/blob/master/docs/InProgressScreenShot.png?raw=true)
 
 ## Technical Stack
-- React, React Router, React-cookie, Axios, Node.js/Express RESTful API, PostgreSQL, SQL, Material UI, Styled-components
+- React (React Router, React-cookie) 
+- Node.js/Express RESTful API
+- PostgreSQL
+- Axios
+- Material UI, Styled-components
 
