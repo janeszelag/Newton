@@ -5,7 +5,6 @@ import GridListTile from "@material-ui/core/GridListTile";
 export const MainDiv = styled.div`
   width: 100%;
   margin-top: 2em;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
