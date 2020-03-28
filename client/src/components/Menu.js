@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Pin from "./Pin";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import Button from "@material-ui/core/Button";
 import {
   MainDiv,
   IntroDiv,
@@ -28,7 +26,7 @@ export default function Menu(props) {
   const classes = useStyles();
   const [resources, setResources] = useState([]);
 
-  //add a call to get number of boards one day, combine state - if boards is zero then intro message
+  //add a call to get number of boards one day, combine state - if boards is zero then intro message present
   useEffect(() => {
     axios
       .request({
