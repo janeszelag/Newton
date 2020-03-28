@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import Pin from "./Pin";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Button from "@material-ui/core/Button";
 import {
   MainDiv,
   StyledGridList,
@@ -30,10 +32,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function Menu(props) {
   const classes = useStyles();
-
   const [isMobile, setIsMobile] = useState(false);
   const [resources, setResources] = useState([]);
 
+  //add a call to get number of boards one day, combine state - if boards is zero then intro message
   useEffect(() => {
     //I really need to fix this so its better, need to research the grid thing to figure it out
     if (window.innerWidth < 600) setIsMobile(true);
@@ -52,7 +54,6 @@ export default function Menu(props) {
         withCredentials: false
       })
       .then(response => {
-        console.log(response);
         setResources(response.data);
       })
       .catch(function(error) {
@@ -76,23 +77,28 @@ export default function Menu(props) {
         className={classes.gridList}
       >
         {resources.map(tile => (
-          <StyledGridListTile key={tile.id} cols={1} rows={1}>
-            <img src={tile.img_url} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              titlePosition="top"
-              actionIcon={
-                <IconButton
-                  aria-label={`star ${tile.title}`}
-                  className={classes.icon}
-                >
-                  <Pin />
-                </IconButton>
-              }
-              actionPosition="right"
-              className={classes.titleBar}
-            />
-          </StyledGridListTile>
+     
+            <StyledGridListTile key={tile.id} cols={1} rows={1}>
+             <img src={tile.img_url} alt={tile.title} />
+             
+      
+              <GridListTileBar
+                title={tile.title}
+                titlePosition="top"
+                actionIcon={
+                  <IconButton
+                    aria-label={`star ${tile.title}`}
+                    className={classes.icon}
+                  >
+                    <Pin />
+                  </IconButton>
+                }
+                actionPosition="right"
+                className={classes.titleBar}
+              />
+            
+            </StyledGridListTile>
+
         ))}
       </StyledGridList>
     </MainDiv>
