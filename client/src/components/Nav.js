@@ -20,8 +20,6 @@ const Apple = styled.img`
   margin-right: 6px;
 `;
 
-
-
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1

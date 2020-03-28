@@ -12,15 +12,19 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
-
-import {ContainerSignup, MainDiv, PaperSignup, TextFieldSignup, TypographySignup, StyledLink} from '../../styles/signup'
+import {
+  ContainerSignup,
+  MainDiv,
+  PaperSignup,
+  TextFieldSignup,
+  TypographySignup,
+  StyledLink
+} from "../../styles/signup";
 const axios = require("axios").default;
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
-
 
 // MATERIAL UI COMPONENT STYLING THEME
 const useStyles = makeStyles(theme => ({
@@ -44,11 +48,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function Form(props) {
   const [open, setOpen] = useState(false);
- 
+
   let history = useHistory();
   const classes = useStyles();
-
- 
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -72,10 +74,7 @@ export default function Form(props) {
       data: body
     })
       .then(response => {
-        props.setUserCookie(
-          response.data.firstname,
-          response.data.id
-        );
+        props.setUserCookie(response.data.firstname, response.data.id);
         props.setUser({
           firstName: response.data.firstname,
           id: response.data.id
@@ -87,7 +86,6 @@ export default function Form(props) {
         handleClickOpen();
       });
   };
-  
 
   const { inputs, handleInputChange, handleSubmit } = useUserForm(signUserUp);
 
