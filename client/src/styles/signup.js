@@ -62,7 +62,7 @@ export const MainDivTopics = styled.div`
 export const IntroDiv = styled.div`
   height: 40%;
   width: 100%;
-  background-color: #e5a7a6;
+  background-color: #d98e7f;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

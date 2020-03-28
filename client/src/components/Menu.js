@@ -60,9 +60,9 @@ export default function Menu(props) {
         </Text>
       </IntroDiv>
 
-      <StyledGrid container spacing={3}>
+      <StyledGrid container spacing={2}>
         {resources.map(resource => (
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={3}>
             <StyledCard className={classes.root} elevation={8}>
               <CardActionArea>
                 <StyledCardContent>

@@ -20,7 +20,8 @@ export const StyledGrid = styled(Grid)`
 export const StyledTypography = styled(Typography)`
   font-weight: 600;
   color: #faf9f8;
-  font-size: 1.75em;
+  font-size: 1.35em;
+  margin-right: 0em;
   @media (max-width: 768px) {
     text-align: center;
   }
@@ -28,7 +29,8 @@ export const StyledTypography = styled(Typography)`
 
 export const StyledCard = styled(Card)`
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 1px 6px 2px	#808080;
   }
 `;
 
@@ -37,10 +39,12 @@ export const StyledCardContent = styled(CardContent)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+  align-items: center;
+  padding: 1em;
+ 
 `;
+
+
 
 export const IntroDiv = styled.div`
   height: 40%;
