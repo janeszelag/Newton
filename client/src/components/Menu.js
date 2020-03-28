@@ -32,12 +32,18 @@ import styled from "styled-components";
 const axios = require("axios").default;
 
 const StyledTypography = styled(Typography)`
-font-weight: 500;
+font-weight: 600;
 color: #faf9f8;
+font-size: 1.75em;
+@media (max-width: 768px) {
+  text-align: center;
+
+}
+
 `
 const StyledCard = styled(Card)`
 &:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 
 }
 `
@@ -46,6 +52,10 @@ background-color: #a6b07e;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+@media (max-width: 768px) {
+  flex-direction: column;
+
+}
 `
 const StyledGrid = styled(Grid)`
 width: 95%
@@ -75,13 +85,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Menu(props) {
   const classes = useStyles();
-  const [isMobile, setIsMobile] = useState(false);
   const [resources, setResources] = useState([]);
 
   //add a call to get number of boards one day, combine state - if boards is zero then intro message
   useEffect(() => {
-    //I really need to fix this so its better, need to research the grid thing to figure it out
-    if (window.innerWidth < 600) setIsMobile(true);
+    
     axios
       .request({
         url: "http://localhost:5000/resources",
@@ -117,10 +125,10 @@ export default function Menu(props) {
       <StyledGrid container spacing={3}>
       {resources.map(resource => (
       <Grid item xs={12} sm={4}>
-      <StyledCard className={classes.root}>
+      <StyledCard className={classes.root} elevation={8}>
       <CardActionArea>
       <StyledCardContent>
-          <StyledTypography gutterBottom variant="h6" component="h3" >
+          <StyledTypography gutterBottom >
             {resource.title}
           </StyledTypography>
           <Button ><Pin /></Button>
@@ -130,7 +138,7 @@ export default function Menu(props) {
         <CardMedia
           component="img"
           alt={resource.title}
-          height="200"
+          height="250"
           image={resource.img_url}
           title="Contemplative Reptile"
         />
