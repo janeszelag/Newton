@@ -15,8 +15,8 @@ import { useHistory, Link } from "react-router-dom";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 const Apple = styled.img`
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   margin-right: 6px;
 `;
 
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   toolbar: {
-    minHeight: 55,
+    minHeight: 50,
     verticalAlign: "middle"
   },
   menuButton: {
