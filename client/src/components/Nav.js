@@ -11,7 +11,7 @@ import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 const Apple = styled.img`
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
       display: "block"
     },
     marginTop: "0.25em",
-    fontWeight: 500,
+    fontWeight: 400,
     fontSize: "x-large",
     color: "#F8FAF9"
 
@@ -178,12 +178,12 @@ export default function PrimarySearchAppBar(props) {
     <div className={classes.grow}>
       <AppBar position="static" className={classes.app}>
         <Toolbar className={classes.toolbar}>
-        <ButtonBase onClick={() => history.push("/menu")}>
-          <Apple src="https://res.cloudinary.com/dpfixnpii/image/upload/v1584418511/apple_1_yzrfxh.svg"/>
+        <Link to="/menu">
+        <Apple src="https://res.cloudinary.com/dpfixnpii/image/upload/v1584418511/apple_1_yzrfxh.svg"/>
+        </Link>
           <Typography className={classes.title} variant="h6" noWrap>
             newton
           </Typography>
-          </ButtonBase>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon className={classes.icon} />
@@ -202,7 +202,7 @@ export default function PrimarySearchAppBar(props) {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
           {props.userName && <Typography className={classes.title2} variant="h6" noWrap>
-           Hi {props.userName}!
+           {props.userName}
           </Typography> }
             <IconButton
               edge="end"
