@@ -8,12 +8,14 @@ import {
   StyledTypography,
   StyledCard,
   StyledCardContent,
-  StyledGrid
+  StyledGrid,
+  StyledLink
 } from "../styles/menu";
 import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
 
 const axios = require("axios").default;
 const useStyles = makeStyles(theme => ({
@@ -24,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Menu(props) {
   const classes = useStyles();
+  const history = useHistory();
   const [resources, setResources] = useState([]);
 
   //add a call to get number of boards one day, combine state - if boards is zero then intro message present
@@ -48,7 +51,7 @@ export default function Menu(props) {
       .catch(function(error) {
         console.log(error);
       });
-  }, []);
+  }, [props.id]);
 
   return (
     <MainDiv>
@@ -62,17 +65,21 @@ export default function Menu(props) {
 
       <StyledGrid container spacing={2}>
         {resources.map(resource => (
-          <Grid item xs={12} sm={3}>
+          
+          <Grid item xs={12} sm={3} key={resource.id}>
             <StyledCard className={classes.root} elevation={8}>
-              <CardActionArea>
+              
                 <StyledCardContent>
-                  <StyledTypography gutterBottom>
+                <StyledLink to={"/resources/" + resource.id}>
+                <StyledTypography gutterBottom>
                     {resource.title}
                   </StyledTypography>
+                </StyledLink>
                   <Button>
                     <Pin />
                   </Button>
                 </StyledCardContent>
+                <CardActionArea onClick={() => history.push("/resources/" + resource.id)}>
                 <CardMedia
                   component="img"
                   alt={resource.title}

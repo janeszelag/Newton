@@ -6,6 +6,12 @@ import {
 const axios = require("axios").default;
 
 
+//will need to grab comments in addition to resource
+// needs save pin
+// back button 
+// link button - could be title
+// rounded paper div, or rounded paper like pinterest would be nice
+
 export default function Resource() {
   const [resource, setResource] = useState([]);
   let { id } = useParams();

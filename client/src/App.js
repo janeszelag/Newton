@@ -66,7 +66,7 @@ function App() {
           setUser={setUser}
         />
         <Switch>
-          <Route path="/resource/:id">
+          <Route path="/resources/:id">
             {" "}
             <Resource />
           </Route>

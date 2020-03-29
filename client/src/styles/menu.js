@@ -3,6 +3,9 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
+import { Link } from "react-router-dom";
+
+
 
 export const MainDiv = styled.div`
   width: 100%;
@@ -20,7 +23,7 @@ export const StyledGrid = styled(Grid)`
 export const StyledTypography = styled(Typography)`
   font-weight: 600;
   color: #faf9f8;
-  font-size: 1.35em;
+  font-size: 1.1em;
   margin-right: 0em;
   @media (max-width: 768px) {
     text-align: center;
@@ -30,7 +33,7 @@ export const StyledTypography = styled(Typography)`
 export const StyledCard = styled(Card)`
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 1px 6px 2px	#808080;
+    box-shadow: 0px 5px 2px	#808080;
   }
 `;
 
@@ -40,11 +43,13 @@ export const StyledCardContent = styled(CardContent)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: 0.5em;
  
 `;
 
-
+export const StyledLink = styled(Link)`
+text-decoration:none;
+`
 
 export const IntroDiv = styled.div`
   height: 40%;
