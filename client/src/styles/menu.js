@@ -49,6 +49,11 @@ export const StyledCardContent = styled(CardContent)`
 
 export const StyledLink = styled(Link)`
 text-decoration:none;
+&:hover {
+  text-decoration: underline;
+  text-decoration-color: #F8FAF9;
+  
+}
 `
 
 export const IntroDiv = styled.div`

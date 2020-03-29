@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   toolbar: {
-    minHeight: 60,
+    minHeight: 55,
     verticalAlign: "middle"
   },
   menuButton: {

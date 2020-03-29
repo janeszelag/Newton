@@ -16,6 +16,7 @@ const theme = createMuiTheme({
       //#c97064 - red/pink
       //#a6b07e -olive green
       //#bca371 - beige
+      //#F8FAF9 - white
     },
     text: {
       primary: "#0B0C0C",
