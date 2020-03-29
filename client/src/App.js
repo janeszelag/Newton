@@ -6,6 +6,7 @@ import About from "./components/About";
 import Signup from "./components/SignUp/SignUp";
 import Login from "./components/Login";
 import Menu from "./components/Menu";
+import Resource from "./components/Resource";
 import useApplicationData from "./hooks/useApplicationData";
 
 function App() {
@@ -64,7 +65,13 @@ function App() {
           removeUserCookie={removeUserCookie}
           setUser={setUser}
         />
-        <Switch>{routes}</Switch>
+        <Switch>
+          <Route path="/resource/:id">
+            {" "}
+            <Resource />
+          </Route>
+          {routes}
+        </Switch>
       </Router>
     </div>
   );

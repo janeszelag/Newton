@@ -9,6 +9,13 @@ module.exports = db => {
     });
   });
 
+  router.get("/page", (req, res) => {
+    const id = parseInt(req.query.id);
+    return db.getResourceByID(id).then(resource => {
+      res.status(200).json(resource);
+    });
+  });
+
   // router.get("/", (req, res) => {
   //   const userId = req.body.userId;
   //   console.log(userId)
