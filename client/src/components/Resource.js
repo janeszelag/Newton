@@ -13,6 +13,37 @@ const axios = require("axios").default;
 // link button - could be title
 // rounded paper div, or rounded paper like pinterest would be nice
 
+export const MainDiv = styled.div`
+  width: 100%;
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+
+const StyledPaper = styled(Paper)`
+width: 80%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+`
+const ImgDiv = styled.div`
+width: 50%;
+`
+const CommentsDiv = styled.div`
+width: 50%;
+`
+const StyledImg = styled.img`
+height: 70vh;
+  width: 70vh;
+`
+const CommentsPaper = styled(Paper)`
+
+`
+
 export default function Resource() {
   const [resource, setResource] = useState([]);
   let { id } = useParams();
@@ -44,11 +75,22 @@ export default function Resource() {
  
   return (
     <main>
-       <h3>ID: {id}</h3>
-       <Paper>
-         <h1>{resource.title}</h1>
-         <img src={resource.img_url} alt={resource.title}/>
-       </Paper>
+       <MainDiv>
+       <StyledPaper>
+         
+         <ImgDiv>
+         <StyledImg src={resource.img_url} alt={resource.title}/>
+         </ImgDiv>
+         <CommentsDiv>
+           <CommentsPaper>
+           <h1>{resource.title}</h1>
+           </CommentsPaper>
+        
+         </CommentsDiv>
+       </StyledPaper>
+
+       </MainDiv>
+      
     </main>
   );
 }
