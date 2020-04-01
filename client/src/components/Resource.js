@@ -66,7 +66,7 @@ const StyledHref = styled.a`
   text-decoration: none;
   &:hover {
     text-decoration: underline;
-    text-decoration-color: #f8faf9;
+    text-decoration-color: #0B0C0C;;
   }
 `;
 const PinDiv = styled.div`
