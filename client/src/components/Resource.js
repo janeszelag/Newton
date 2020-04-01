@@ -23,24 +23,43 @@ export const MainDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media (max-width: 768px) {
+    margin-top: 2em;
+    
+  }
+ 
 `;
 
 const StyledGrid = styled(Grid)`
   width: 80%;
   height: 75%;
   background-color: #fff;
-  
+  flex: grow;
+  flex-wrap: wrap;
   border-color: #808080;
   border-radius: 10px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  @media (max-width: 768px) {
+    width: 90%;
+    height: 120%;
+    
+  }
 `;
 
 const GridItem = styled(Grid)`
+width: 100%;
+height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
- 
+  @media (max-width: 900px) {
+    width: 90%;
+    height: 50%;
+    
+  }
+  
+
 `;
 
 const TitleDiv = styled.div`
@@ -59,6 +78,9 @@ const Title = styled.h1`
   width: 100%;
   font-weight: 600;
  color: #0B0C0C;
+ @media (max-width: 768px) {
+  font-size: 1.5em;
+}
 `;
 const StyledHref = styled.a`
   text-align: center;
@@ -74,11 +96,22 @@ const PinDiv = styled.div`
 `;
 
 const StyledImg = styled.img`
-  height: 80%;
-  width: 100%;
+ 
+height: 100%;
+width: 100%;
 
   border-radius: 0px 0px 0px 10px;
 `;
+
+const ImgDiv = styled.div`
+height: 80%;
+  width: 100%;
+  display: flex;
+
+ 
+
+
+`
 
 const CommentsPaper = styled(Paper)`
   width: 90%;
@@ -86,7 +119,11 @@ const CommentsPaper = styled(Paper)`
 
 export default function Resource() {
   const [resource, setResource] = useState([]);
+
   let { id } = useParams();
+
+
+ 
 
   useEffect(() => {
     axios
@@ -135,10 +172,12 @@ export default function Resource() {
        
              
             </TitleDiv>
-
+            <ImgDiv>
             <StyledImg src={resource.img_url} alt={resource.title} />
+            </ImgDiv>
+            
           </GridItem>
-          <GridItem item xs={12} sm={6}>
+          <GridItem item xs={12}sm={12} lg={6}>
             <CommentsPaper>
               <p>description, comments will go here</p>
             </CommentsPaper>
