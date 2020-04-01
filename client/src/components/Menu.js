@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Pin from "./Pin";
 import {
   MainDiv,
   IntroDiv,
@@ -11,6 +10,7 @@ import {
   StyledGrid,
   StyledLink
 } from "../styles/menu";
+import { PinImg } from "../styles/pin";
 import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -65,21 +65,25 @@ export default function Menu(props) {
 
       <StyledGrid container spacing={2}>
         {resources.map(resource => (
-          
           <Grid item xs={12} sm={3} key={resource.id}>
             <StyledCard className={classes.root} elevation={8}>
-              
-                <StyledCardContent>
+              <StyledCardContent>
                 <StyledLink to={"/resources/" + resource.id}>
-                <StyledTypography gutterBottom>
+                  <StyledTypography gutterBottom>
                     {resource.title}
                   </StyledTypography>
                 </StyledLink>
-                  <Button>
-                    <Pin />
-                  </Button>
-                </StyledCardContent>
-                <CardActionArea onClick={() => history.push("/resources/" + resource.id)}>
+                <Button>
+                  <PinImg
+                    small
+                    src="https://res.cloudinary.com/dpfixnpii/image/upload/v1584477112/push-pin_flvjco.svg"
+                    alt="pin"
+                  />
+                </Button>
+              </StyledCardContent>
+              <CardActionArea
+                onClick={() => history.push("/resources/" + resource.id)}
+              >
                 <CardMedia
                   component="img"
                   alt={resource.title}

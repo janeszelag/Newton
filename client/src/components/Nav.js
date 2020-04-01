@@ -12,7 +12,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { useHistory, Link } from "react-router-dom";
-import ButtonBase from "@material-ui/core/ButtonBase";
+
 
 const Apple = styled.img`
   height: 30px;
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     },
     fontWeight: 600,
     fontSize: "x-large",
-    color: "#F8FAF9"
+    color: "#FFF"
 
   },
   title2: {
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: "0.25em",
     fontWeight: 400,
     fontSize: "x-large",
-    color: "#F8FAF9"
+    color: "#FFF"
 
   },
   search: {
@@ -92,7 +92,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       width: 400
     },
-    color: "#F8FAF9",
+    color: "#FFF",
     fontWeight: 600
   },
   sectionDesktop: {
@@ -108,7 +108,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   icon: {
-    color: 'white',
+    color: '#FFF',
   },
 }));
 
