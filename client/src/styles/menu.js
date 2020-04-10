@@ -66,6 +66,7 @@ export const IntroDiv = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2em;
+  display: none;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   @media (max-width: 768px) {
     padding: 0em;

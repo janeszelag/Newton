@@ -85,9 +85,7 @@ export default function Resource() {
             </ImgDiv>
           </GridItem>
           <GridItem item xs={12} sm={12} lg={6}>
-            <CommentsPaper>
-              <p>description, comments will go here</p>
-            </CommentsPaper>
+           
           </GridItem>
         </StyledGrid>
       </MainDiv>
