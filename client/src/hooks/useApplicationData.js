@@ -14,7 +14,7 @@ export default function useApplicationData() {
     }
   });
 
-  //  //sets user, from before
+  //sets user
   const setUser = user => {
     setState(prev => ({
       ...prev,
@@ -30,6 +30,14 @@ export default function useApplicationData() {
   //remove user cookie
   const removeUserCookie = () => {
     removeCookie("user");
+  };
+
+  const authenticatetUser = () => {
+    if (state.user.firstName) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   if (!state.user.firstName && cookies.user) {
@@ -63,5 +71,5 @@ export default function useApplicationData() {
       });
   }, []);
 
-  return { state, cookies, setUserCookie, setUser, removeUserCookie };
+  return { state, cookies, setUserCookie, setUser, removeUserCookie, authenticatetUser };
 }
